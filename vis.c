@@ -311,6 +311,8 @@ static void window_draw_cursorline(Win *win) {
 		return;
 	if (view_selections_count(view) > 1)
 		return;
+	if (vis->mode->id != VIS_MODE_INSERT)
+		return;
 
 	int width = view_width_get(view);
 	CellStyle style = win->ui->style_get(win->ui, UI_STYLE_CURSOR_LINE);
